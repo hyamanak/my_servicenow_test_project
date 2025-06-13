@@ -1,0 +1,6 @@
+- name: Test inventory connection
+  hosts: all
+  gather_facts: false
+  tasks:
+    - debug:
+        var: inventory_hostname
