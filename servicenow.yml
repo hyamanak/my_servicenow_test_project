@@ -1,0 +1,20 @@
+plugin: servicenow.itsm.now
+instance: dummy_instance                # ダミーでもOK（認証で落ちるが構文は通る）
+username: "{{ lookup('env', 'SN_USERNAME') }}"
+password: "{{ lookup('env', 'SN_PASSWORD') }}"
+query: "active=true"
+fields:
+  - name
+  - os
+  - used_for
+  - cpu_type
+  - firewall_status
+keyed_groups:
+  - key: os
+    prefix: os
+  - key: used_for
+    prefix: used_for
+  - key: cpu_type
+    prefix: cpu_type
+  - key: firewall_status
+    prefix: firewall_status
